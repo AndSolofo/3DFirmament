@@ -89,23 +89,64 @@ int main(void)
         processInput(window);
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
+        glm::mat4 view = glm::mat4(1.0f);
+        view = glm::lookAt(mainCamera.cameraPos, mainCamera.cameraPos + mainCamera.GetCameraDirection(), mainCamera.GetUp());
+        glm::mat4 projection = glm::mat4(1.0f);
+        projection = glm::perspective(glm::radians(45.0f), 640.0f / 480.0f, 0.1f, 100.0f);
+        int viewLoc = glGetUniformLocation(cubeShader.programID, "view");
+        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 
-        // Set up view/projection matrices
-        glm::mat4 view = glm::lookAt(mainCamera.cameraPos,
-            mainCamera.cameraPos + mainCamera.GetCameraDirection(),
-            mainCamera.GetUp());
-        glm::mat4 projection = glm::perspective(glm::radians(45.0f),
-            640.0f / 480.0f, 0.1f, 100.0f);
+        int projectionLoc = glGetUniformLocation(cubeShader.programID, "projection");
+        glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
+        /*
+        glUseProgram(cubeShader.programID);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+        */
 
         // Activate shader and set matrices
         cubeShader.use();
         cubeShader.SetMat4("view", view);
         cubeShader.SetMat4("projection", projection);
 
-        // View position
-        cubeShader.SetVec3("viewPos", mainCamera.cameraPos);
+        float lightX = sin(glfwGetTime() * 1.5f) * 5.0f;
+        float lightZ = cos(glfwGetTime() * 1.5f) * 5.0f;
+        lightPosition = glm::vec3(lightX, 5.0f, lightZ);  // Y position fixed at 5.
+        glUseProgram(cubeShader.programID);
+        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        glUniform3f(glGetUniformLocation(cubeShader.programID, "lightPos"), lightPosition.x, lightPosition.y, lightPosition.z);
+        glUniform3f(glGetUniformLocation(cubeShader.programID, "viewPos"), mainCamera.cameraPos.x,mainCamera.cameraPos.y,mainCamera.cameraPos.z);
+        glUniform1f(glGetUniformLocation(cubeShader.programID, "material.diffuse"), 0.0f);  // Texture unit 0
+        glUniform1f(glGetUniformLocation(cubeShader.programID, "material.specular"), 1.0f); // Texture unit 1
+        glUniform1f(glGetUniformLocation(cubeShader.programID, "material.shininess"), 32.0f);
+        
+        glUniform3f(glGetUniformLocation(cubeShader.programID, "spotLight.position"),
+            mainCamera.cameraPos.x,
+            mainCamera.cameraPos.y,
+            mainCamera.cameraPos.z);
+
+        // Spotlight direction (camera forward)
+        glUniform3f(glGetUniformLocation(cubeShader.programID, "spotLight.direction"),
+            mainCamera.GetCameraDirection().x,
+            mainCamera.GetCameraDirection().y,
+            mainCamera.GetCameraDirection().z);
+
+        // SUPER WIDE angle (45 degrees instead of 30)
+        glUniform1f(glGetUniformLocation(cubeShader.programID, "spotLight.cutOff"),
+            glm::cos(glm::radians(45.0f)));
+
+        // BRIGHT ambient light (white)
+        glUniform3f(glGetUniformLocation(cubeShader.programID, "spotLight.ambient"),
+            0.8f, 0.8f, 0.8f);
+
+        // NEON RED diffuse (very intense)
+        glUniform3f(glGetUniformLocation(cubeShader.programID, "spotLight.diffuse"),
+            2.0f, 0.2f, 0.2f);
+
+        // SUPER BRIGHT white specular
+        glUniform3f(glGetUniformLocation(cubeShader.programID, "spotLight.specular"),
+            3.0f, 3.0f, 3.0f);
 
         // ========== DIRECTIONAL LIGHT ==========
         cubeShader.SetVec3("dirLights[0].position", glm::vec3(0.0f, -1.0f, 0.0f));

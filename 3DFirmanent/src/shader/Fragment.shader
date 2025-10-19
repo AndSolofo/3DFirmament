@@ -151,7 +151,6 @@ vec3 CalculateSpotlight(SpotLight light, vec3 normal, vec3 fragPos,vec3 viewDir)
     else {
         color = light.ambient * getDiffuseColor();
     }
-
     return color;
 }
 

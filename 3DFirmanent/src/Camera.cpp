@@ -73,11 +73,10 @@ void Camera::MouseCallBack(GLFWwindow* window,float xpos,float ypos)
     if (cameraPitch < -89.0f)
         cameraPitch = -89.0f;
 
-    glm::vec3 cameraDirection;
     cameraDirection.x = cos(glm::radians(cameraYaw)) * cos(glm::radians(cameraPitch));
     cameraDirection.y = -sin(glm::radians(cameraPitch));
     cameraDirection.z = sin(glm::radians(cameraYaw)) * cos(glm::radians(cameraPitch));
-    SetCameraDirection(glm::normalize(cameraDirection));
+    
     
 }
 
