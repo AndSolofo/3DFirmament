@@ -70,6 +70,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+<<<<<<< HEAD
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(ProjectDir)..\Dependencies;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -82,25 +83,31 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+=======
+>>>>>>> parent of 7b94561 (Final code commit)
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+<<<<<<< HEAD
       <AdditionalIncludeDirectories>$(ProjectDir)Dependencies\glm;$(ProjectDir)Dependencies\glad\include;$(ProjectDir)Dependencies\include;$(ProjectDir)Dependencies\vendor;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glm;$(SolutionDir)3DFirmanent\Dependencies\glad\include;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AssemblerOutput>NoListing</AssemblerOutput>
       <ExpandAttributedSource>false</ExpandAttributedSource>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+=======
+      <AdditionalIncludeDirectories>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glm;$(SolutionDir)3DFirmanent\Dependencies\glad\include;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+>>>>>>> parent of 7b94561 (Final code commit)
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)3DFirmanent\Dependencies;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ForceFileOutput>MultiplyDefinedSymbolOnly</ForceFileOutput>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\include;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glad\include;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glm;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -129,15 +136,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+<<<<<<< HEAD
       <AdditionalIncludeDirectories>$(ProjectDir)Dependencies\glm;$(ProjectDir)Dependencies\glad\include;$(ProjectDir)Dependencies\include;$(ProjectDir)Dependencies\vendor;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+=======
+      <AdditionalIncludeDirectories>$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+>>>>>>> parent of 7b94561 (Final code commit)
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)3DFirmanent\Dependencies;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ForceFileOutput>MultiplyDefinedSymbolOnly</ForceFileOutput>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -148,7 +158,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\include;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glad\include;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glm;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -166,17 +176,7 @@
     <ClCompile Include="src\CubeMap.cpp" />
     <ClCompile Include="src\Frame_stats_menu.cpp" />
     <ClCompile Include="src\glad.c" />
-    <ClCompile Include="src\ImGuisource\imgui.cpp" />
-    <ClCompile Include="src\ImGuisource\imgui_demo.cpp" />
-    <ClCompile Include="src\ImGuisource\imgui_draw.cpp" />
-    <ClCompile Include="src\ImGuisource\imgui_impl_glfw.cpp" />
-    <ClCompile Include="src\ImGuisource\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="src\ImGuisource\imgui_tables.cpp" />
-    <ClCompile Include="src\ImGuisource\imgui_widgets.cpp" />
-    <ClCompile Include="src\LightingMenu.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Mesh.cpp" />
-    <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\stb_image_define.cpp" />
   </ItemGroup>
@@ -186,9 +186,9 @@
     <None Include="src\shader\LIghtingVS.shader" />
     <None Include="src\shader\Skybox.shader" />
     <None Include="src\Vertex.shader" />
-    <None Include="x64\Debug\assimp-vc143-mtd.dll" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="Dependencies\ImGui\imconfig.h" />
     <ClInclude Include="Dependencies\ImGui\imgui.h" />
     <ClInclude Include="Dependencies\ImGui\imgui_impl_glfw.h" />
@@ -207,17 +207,19 @@
     <ClInclude Include="Dependencies\vendor\imstb_textedit.h" />
     <ClInclude Include="Dependencies\vendor\imstb_truetype.h" />
     <ClInclude Include="src\Application.h" />
+=======
+>>>>>>> parent of 7b94561 (Final code commit)
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\CubeMap.h" />
     <ClInclude Include="src\Frame_stats_menu.h" />
+<<<<<<< HEAD
     <ClInclude Include="src\LightingMenu.h" />
     <ClInclude Include="src\Mesh.h" />
     <ClInclude Include="src\Model.h" />
     <ClInclude Include="src\RawVertices.h" />
+=======
+>>>>>>> parent of 7b94561 (Final code commit)
     <ClInclude Include="src\Shader.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="Dependencies\glfw3.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

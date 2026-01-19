@@ -30,6 +30,7 @@
     <ClCompile Include="src\Shader.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="src\Mesh.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -69,14 +70,19 @@
     <ClCompile Include="src\stb_image_define.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+=======
+>>>>>>> parent of 7b94561 (Final code commit)
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Vertex.shader" />
     <None Include="src\Fragment.shader" />
     <None Include="src\shader\Lighting.shader" />
     <None Include="src\shader\LIghtingVS.shader" />
+<<<<<<< HEAD
     <None Include="x64\Debug\assimp-vc143-mtd.dll" />
     <None Include="src\shader\Skybox.shader" />
+=======
+>>>>>>> parent of 7b94561 (Final code commit)
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera.h">
@@ -88,6 +94,7 @@
     <ClInclude Include="src\Shader.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="src\Mesh.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -160,5 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="Dependencies\glfw3.lib" />
+=======
+>>>>>>> parent of 7b94561 (Final code commit)
   </ItemGroup>
 </Project>
