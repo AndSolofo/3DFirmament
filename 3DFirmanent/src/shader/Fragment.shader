@@ -4,10 +4,10 @@ out vec4 FragColor;
 in vec2 TexCoord;
 in vec3 FragPos;
 in vec3 Normal;
+in vec4 shadowProjection;
 
 uniform vec3 viewPos;
 
-<<<<<<< HEAD
 struct PointLight {
 	vec3 position;
 	vec3 ambient;
@@ -74,7 +74,7 @@ vec3 getSpecularColor() {
 
 
 
-//lighting(includes attenuation as well as soft edges)
+
 vec3 CalculatePointLight(PointLight light, vec3 normal, vec3 fragPos) {
 	vec3 ambient;
 	ambient = light.ambient * getDiffuseColor();
@@ -151,6 +151,19 @@ vec3 CalculateSpotlight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir
 	return color;
 }
 
+float inShadow(){
+	float shadow=0.0;
+	vec3 projCoords=(shadowProjection.xyz/shadowProjection.w)*0.5+0.5;
+	float closestDepth=texture(projCoords.xy,shadowTexture).r;
+	float currentDepth=projCoords.z;
+	if(currentDepth>closestDepth){
+		shadow=1.0;
+	}else{
+		shadow=0.0;
+	}
+	return shadow;
+}
+
 void main()
 {
 	vec3 result;
@@ -164,68 +177,8 @@ void main()
 		result += CalculateDirLight(dirLights[i], norm, viewDir);
 	}
 	result += CalculateSpotlight(spotLights[0], norm, FragPos, viewDir);
-	FragColor = vec4(result, 1.0);
+	float shadowFactor=inShadow();
+	FragColor = vec4(result*(1.0-shadowFactor), 1.0);
 
 
-=======
-struct Material {
-    sampler2D diffuse;
-    sampler2D specular;
-    float shininess;
-};
-
-struct SpotLight {  // Matches C++ usage
-    vec3 position;
-    vec3 direction;
-    float cutOff;    // Matches C++ (capital 'O')
-    vec3 ambient;
-    vec3 diffuse;
-    vec3 specular;
-    float constant;
-    float linearVal; // Matches C++
-    float quadratic; // Matches C++
-};
-uniform SpotLight spotLight;  // Exact match to C++ name
-uniform Material material;
-
-void main()
-{
-    // Spotlight calculations
-    vec3 lightDir = normalize(spotLight.position - FragPos);
-    float theta = dot(lightDir, normalize(-spotLight.direction));
-
-    if (theta > spotLight.cutOff)
-    {
-        // Attenuation
-        float distance = length(spotLight.position - FragPos);
-        float attenuation = 1.0 / (spotLight.constant + spotLight.linearVal * distance +
-            spotLight.quadratic * (distance * distance));
-
-        // Ambient
-        vec3 ambient = spotLight.ambient * vec3(texture(material.diffuse, TexCoord));
-        ambient = attenuation*ambient;
-
-        // Diffuse 
-        vec3 norm = normalize(Normal);
-        float diff = max(dot(norm, lightDir), 0.0);
-        vec3 diffuse = spotLight.diffuse * diff * vec3(texture(material.diffuse, TexCoord));
-        diffuse = attenuation*diffuse;
-
-        // Specular
-        vec3 viewDir = normalize(viewPos - FragPos);
-        vec3 reflectDir = reflect(-lightDir, norm);
-        float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-        vec3 specular = spotLight.specular * spec * vec3(texture(material.specular, TexCoord));
-        specular = attenuation*specular;
-
-        // Combine results
-        vec3 result = ambient + diffuse + specular;
-        FragColor = vec4(result,1.0f);
-    }
-    else
-    {
-        // Outside the spotlight cutoff - just show ambient light
-        FragColor = vec4(spotLight.ambient * vec3(texture(material.diffuse, TexCoord)), 1.0);
-    }
->>>>>>> parent of 7b94561 (Final code commit)
 }
