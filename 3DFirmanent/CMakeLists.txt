@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD ON)
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(assimp REQUIRED)
-finad_package(glm REQUIRED)
+find_package(glm REQUIRED)
 
 add_library(imgui STATIC
     Dependencies/ImGui/imgui.cpp
