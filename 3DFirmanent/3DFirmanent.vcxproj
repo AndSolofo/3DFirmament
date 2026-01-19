@@ -71,13 +71,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)..\Dependencies;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)..\Dependencies;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies;$(LibraryPath)</LibraryPath>
@@ -88,8 +88,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\vendor;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\include;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glad\include;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glm;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glm;$(SolutionDir)3DFirmanent\Dependencies\glad\include;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)Dependencies\glm;$(ProjectDir)Dependencies\glad\include;$(ProjectDir)Dependencies\include;$(ProjectDir)Dependencies\vendor;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glm;$(SolutionDir)3DFirmanent\Dependencies\glad\include;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AssemblerOutput>NoListing</AssemblerOutput>
       <ExpandAttributedSource>false</ExpandAttributedSource>
@@ -129,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\vendor;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\include;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glad\include;C:\3DFirmament\3DFirmanent\3DFirmanent\Dependencies\glm;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Dependencies\glm;$(ProjectDir)Dependencies\glad\include;$(ProjectDir)Dependencies\include;$(ProjectDir)Dependencies\vendor;$(SolutionDir)3DFirmanent\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -161,7 +161,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\CubeMap.cpp" />
     <ClCompile Include="src\Frame_stats_menu.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\ImGuisource\imgui.cpp" />
@@ -176,11 +178,13 @@
     <ClCompile Include="src\Mesh.cpp" />
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\stb_image_define.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Fragment.shader" />
     <None Include="src\shader\Lighting.shader" />
     <None Include="src\shader\LIghtingVS.shader" />
+    <None Include="src\shader\Skybox.shader" />
     <None Include="src\Vertex.shader" />
     <None Include="x64\Debug\assimp-vc143-mtd.dll" />
   </ItemGroup>
@@ -202,11 +206,14 @@
     <ClInclude Include="Dependencies\vendor\imstb_rectpack.h" />
     <ClInclude Include="Dependencies\vendor\imstb_textedit.h" />
     <ClInclude Include="Dependencies\vendor\imstb_truetype.h" />
+    <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\CubeMap.h" />
     <ClInclude Include="src\Frame_stats_menu.h" />
     <ClInclude Include="src\LightingMenu.h" />
     <ClInclude Include="src\Mesh.h" />
     <ClInclude Include="src\Model.h" />
+    <ClInclude Include="src\RawVertices.h" />
     <ClInclude Include="src\Shader.h" />
   </ItemGroup>
   <ItemGroup>

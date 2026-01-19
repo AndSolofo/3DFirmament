@@ -1,5 +1,9 @@
 #include "Model.h"
 
+Model::Model()
+{
+}
+
 void Model::Draw(Shader& shader)
 {
     for (unsigned int i = 0; i < meshes.size(); i++)
@@ -17,7 +21,7 @@ void Model::loadModel(std::string path)
         return;
     }
     directory = path.substr(0, path.find_last_of('/'));
-
+    //TODO:this is inefficient please replace with a better technique
     processNode(scene->mRootNode, scene);
 }
 

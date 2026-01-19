@@ -9,6 +9,7 @@
 #include <glm/gtc/type_ptr.hpp>
 class Shader {
 public:
+	Shader();
 	Shader(const char* vertexPath, const char* fragmentPath);
 	~Shader();
 	void SetMat4(const char* varibale, glm::mat4 value);

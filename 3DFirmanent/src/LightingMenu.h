@@ -1,6 +1,7 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+
 #include<glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -36,14 +37,26 @@ struct SpotLight {
     bool enabled = true;
 };
 
+struct Utilities {
+    bool polygonMode = false;
+    bool depthMode = true;
+    bool cullFace = true;           // Face culling on/off
+    bool blending = false;          // Alpha blending
+    bool showNormals = false;       // Debug: visualize normals
+    bool showGrid = true;           // Debug: show grid/axes
+    bool msaa = true;               // Multisample anti-aliasing
+};
+
 // Global light instances
 PointLight pointLight;
 DirectionalLight dirLight;
 SpotLight spotLight;
+Utilities utilities;
 
 
 class LightMenu {
 public:
+    LightMenu() = delete;
 	LightMenu(GLFWwindow* window);
 	~LightMenu();
 	void Render();

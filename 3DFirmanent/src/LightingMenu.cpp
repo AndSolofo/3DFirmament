@@ -1,11 +1,15 @@
 #include "LightingMenu.h"
 
+
+
+
+
 LightMenu::LightMenu(GLFWwindow* window)
 {
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	ImGui::StyleColorsDark();  // or other style
+	ImGui::StyleColorsDark();  
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 330 core");
 }
@@ -26,6 +30,13 @@ void LightMenu::Render()
 	
     if (ImGui::Begin("Light Controls"))
     {
+        if (ImGui::CollapsingHeader("Useful Utilities")) {
+            //by default the model runs without polygon mode
+            if (ImGui::Checkbox("Polygon Mode", &utilities.polygonMode)) {
+            }
+
+            if(ImGui::Checkbox("Depth Mode",&utilities.depthMode)){}
+        }
         // Point Light Section
         if (ImGui::CollapsingHeader("Point Light", ImGuiTreeNodeFlags_DefaultOpen))
         {

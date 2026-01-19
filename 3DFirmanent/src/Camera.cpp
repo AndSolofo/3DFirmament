@@ -7,7 +7,7 @@ Camera::Camera()
 	upVector = glm::vec3(0.0f, 1.0f, 0.0f);
 	cameraDirection = glm::vec3(0.0f, 0.0f, -1.0f);
     firstMouse = true;
-    //TODO:fix magic numbers
+    //used to avoid null values
     cameraYaw = 0;
     cameraPitch = 0;
     cameralastX = 0.0f;
@@ -47,15 +47,27 @@ glm::vec3 Camera::GetCameraDirection()
 
 void Camera::MouseCallBack(GLFWwindow* window,float xpos,float ypos)
 {
+    Camera* camera = static_cast<Camera*>(glfwGetWindowUserPointer(window));
+    if (camera) {
+        camera->processMouseMovement(window,(float)xpos, (float)ypos);
+    }
+    
+    
+    
+}
+
+void Camera::processMouseMovement(GLFWwindow* window,float xpos, float ypos)
+{
     const float mouseSensitivity = 0.5f;
     int width, height;
     glfwGetFramebufferSize(window, &width, &height);
-    
+
     if (firstMouse) {
         cameralastX = (float)width / 2;;
-        cameralastY = (float)height/2;
+        cameralastY = (float)height / 2;
         firstMouse = false;
     }
+
     float xOffset = xpos - cameralastX;
     float yOffset = ypos - cameralastY;
     cameralastX = xpos;
@@ -76,8 +88,7 @@ void Camera::MouseCallBack(GLFWwindow* window,float xpos,float ypos)
     cameraDirection.x = cos(glm::radians(cameraYaw)) * cos(glm::radians(cameraPitch));
     cameraDirection.y = -sin(glm::radians(cameraPitch));
     cameraDirection.z = sin(glm::radians(cameraYaw)) * cos(glm::radians(cameraPitch));
-    
-    
+
 }
 
 

@@ -60,6 +60,15 @@
     <ClCompile Include="src\LightingMenu.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\Application.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CubeMap.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stb_image_define.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Vertex.shader" />
@@ -67,6 +76,7 @@
     <None Include="src\shader\Lighting.shader" />
     <None Include="src\shader\LIghtingVS.shader" />
     <None Include="x64\Debug\assimp-vc143-mtd.dll" />
+    <None Include="src\shader\Skybox.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera.h">
@@ -136,6 +146,15 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="src\LightingMenu.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Application.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CubeMap.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RawVertices.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

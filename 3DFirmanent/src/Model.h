@@ -1,8 +1,7 @@
 #pragma once
 #include<vector>
 #include<string>
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+#include "stb_image.h"
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -12,6 +11,7 @@
 
 class Model {
 public:
+    Model();
     Model(const char* path)
     {
         loadModel(path);
