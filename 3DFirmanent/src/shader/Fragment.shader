@@ -153,7 +153,7 @@ vec3 CalculateSpotlight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir
 
 float inShadow(){
 	float shadow=0.0;
-	vec3 projCoords=(shadowProjection.xyz/shadowProjection.w)*0.5+0.5;
+	vec3 projCoords=(lightSpaceProjection.xyz/lightSpaceProjection.w)*0.5+0.5;
 	float closestDepth=texture(projCoords.xy,shadowTexture).r;
 	float currentDepth=projCoords.z;
 	if(currentDepth>closestDepth){

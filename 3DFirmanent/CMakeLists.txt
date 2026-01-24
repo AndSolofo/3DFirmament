@@ -5,9 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD ON)
 
 find_package(OpenGL REQUIRED)
-find_package(glfw3 REQUIRED)
-find_package(assimp REQUIRED)
-find_package(glm REQUIRED)
+set(GLFW_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Dependencies/include")
+set(GLFW_LIBRARY "${CMAKE_SOURCE_DIR}/dependencies/glfw3.lib")
+set(ASSIMP_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Dependencies/include")
+set(ASSIMP_LIBRARY "${CMAKE_SOURCE_DIR}/Dependencies/assimp.lib")  # Adjust filename as needed
+set(GLM_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/Dependencies/include")
 
 add_library(imgui STATIC
     Dependencies/ImGui/imgui.cpp
@@ -29,16 +31,16 @@ add_executable(3DFirmament)
 
 target_sources(3DFirmament
                PRIVATE 
-               src/Application.cxx
-               src/Camera.cxx
-               src/CubeMap.cxx
-               src/Frame_stats_menu.cxx
-               src/Lighting_menu.cxx
-               src/main.cxx
-               src/Mesh.cxx
-               src/Model.cxx
-               src/Shader.cxx
-               src/stb_image_define.cxx)
+               src/Application.cpp
+               src/Camera.cpp
+               src/CubeMap.cpp
+               src/Frame_stats_menu.cpp
+               src/LightingMenu.cpp
+               src/main.cpp
+               src/Mesh.cpp
+               src/Model.cpp
+               src/Shader.cpp
+               src/stb_image_define.cpp)
 
 target_include_directories(3DFirmament PRIVATE src)
 
