@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\CubeMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Frame_stats_menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\LightingMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\stb_image_define.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\CubeMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Frame_stats_menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\LightingMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\3DFirmament\3DFirmanent\3DFirmanent\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\shader\Fragment.shader" />
+    <None Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\shader\Lighting.shader" />
+    <None Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\shader\LightingVS.shader" />
+    <None Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\shader\Skybox.shader" />
+    <None Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\shader\SkyboxVS.shader" />
+    <None Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\shader\Vertex.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AE3FEC9F-03FC-38E1-9B70-CBB9FFCA1473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B28C5112-7282-38BC-9508-AE9E163F82E5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
