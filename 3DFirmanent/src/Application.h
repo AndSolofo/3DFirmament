@@ -50,7 +50,6 @@ private:
 	//static variables in order to access OpenGL resize callbacks
 	static Application* s_pResizeImpl;
 	static Application* s_pCursorImpl;
-	//size of the window
 
 
 };
