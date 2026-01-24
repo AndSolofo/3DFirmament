@@ -9,10 +9,7 @@ Application::Application() :m_Width(640),m_Height(480)
 
 Application::~Application()
 {
-	if(m_Window){
-		glfwDestroyWindow(m_Window);
-	}
-	glfwTerminate();
+
 }
 
 void Application::Run()
@@ -162,6 +159,7 @@ void Application::OnCursor(GLFWwindow* window, double xpos, double ypos)
 
 void Application::OnResizeImpl(GLFWwindow* window, int width, int height)
 {
+	//TODO::fix viewport scaling issues
 	glViewport(0, 0, width, height);
 
 }

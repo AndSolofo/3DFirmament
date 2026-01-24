@@ -7,7 +7,11 @@
 #include <glm/gtc/type_ptr.hpp>
 class Shader {
 public:
-	const char* vertexPath, const char* fragmentPath
+	Shader();
+<<<<<<< HEAD
+	Shader(const char* vertexPath, const char* fragmentPath);
+=======
+>>>>>>> parent of 7b94561 (Final code commit)
 	~Shader();
 	char* readShader(const char* filepath);
 	void SetMat4(const char* varibale, glm::mat4 value);
