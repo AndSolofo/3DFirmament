@@ -19,6 +19,9 @@
     <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,6 +52,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

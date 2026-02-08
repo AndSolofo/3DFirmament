@@ -1,7 +1,6 @@
 #pragma once
 #include<vector>
 #include<string>
-#include<glad/glad.h>
 #include<glfw3.h>
 #include<fstream>
 #include "stb_image.h"

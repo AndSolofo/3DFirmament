@@ -22,10 +22,10 @@ public:
 private:
 	glm::vec3 upVector;
 	glm::vec3 lookAtVector;
-	bool firstMouse;
 	float cameralastX;
 	float cameralastY;
 	float cameraYaw;
+	bool firstMouse;
 	
 };
 
