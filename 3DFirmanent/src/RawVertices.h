@@ -1,5 +1,5 @@
 #pragma once
-float skyboxVertices[] = {          
+inline float skyboxVertices[] = {          
     -1.0f,  1.0f, -1.0f,
     -1.0f, -1.0f, -1.0f,
      1.0f, -1.0f, -1.0f,

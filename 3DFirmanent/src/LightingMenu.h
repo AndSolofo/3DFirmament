@@ -49,10 +49,10 @@ struct Utilities {
 };
 
 // Global light instances
-PointLight pointLight;
-DirectionalLight dirLight;
-SpotLight spotLight;
-Utilities utilities;
+inline PointLight pointLight;
+inline DirectionalLight dirLight;
+inline SpotLight spotLight;
+inline Utilities utilities;
 
 
 class LightMenu {
