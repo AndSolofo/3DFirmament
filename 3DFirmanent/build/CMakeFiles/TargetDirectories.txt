@@ -1,0 +1,3 @@
+C:/3DFirmament/3DFirmanent/3DFirmanent/build/CMakeFiles/3DFirmament.dir
+C:/3DFirmament/3DFirmanent/3DFirmanent/build/CMakeFiles/ALL_BUILD.dir
+C:/3DFirmament/3DFirmanent/3DFirmanent/build/CMakeFiles/ZERO_CHECK.dir

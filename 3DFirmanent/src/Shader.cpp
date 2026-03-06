@@ -41,9 +41,9 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
     glLinkProgram(this->programID);
     
     
-    glGetProgramiv(this->ID, GL_LINK_LINK_STATUS, &success);
+    glGetProgramiv(this->programID, GL_LINK_STATUS, &success);
     if (!success) {
-        glGetProgramInfoLog(this->ID, 512, NULL, infoLog);
+        glGetProgramInfoLog(this->programID, 512, NULL, infoLog);
         std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
     }
 
@@ -77,20 +77,24 @@ char* Shader::readShader(const char* filepath)
 }
 
 void Shader::use(){
-    glUseProgram(thsi->programID)
+    glUseProgram(this->programID);
 }
 
 void Shader::SetMat4(const char* variable, glm::mat4 value)
 {
-    glUniformMatrix4fv(glGetUniformLocation(this->ID, variable), 1, GL_FALSE, glm::value_ptr(value));
+    glUniformMatrix4fv(glGetUniformLocation(this->programID, variable), 1, GL_FALSE, glm::value_ptr(value));
 }
 
 void Shader::SetVec3(const char* variable, glm::vec3 value)
 {
-    glUniform3f(glGetUniformLocation(this->ID, variable), value.x, value.y, value.z);
+    glUniform3f(glGetUniformLocation(this->programID, variable), value.x, value.y, value.z);
 }
 
 void Shader::SetFloat(const char* variable, float value)
 {
-    glUniform1f(glGetUniformLocation(this->ID, variable), value);
+    glUniform1f(glGetUniformLocation(this->programID, variable), value);
+}
+
+void Shader::SetInt(const char* variable,uint32_t value) {
+    glUniform1i(glGetUniformLocation(this->programID, variable), value);
 }

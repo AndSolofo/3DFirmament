@@ -5,6 +5,8 @@
 #include<glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include<cstddef>
+#include<glad/glad.h>
 class Shader {
 public:
 	Shader(const char* vertexPath, const char* fragmentPath);
@@ -13,6 +15,8 @@ public:
 	void SetMat4(const char* varibale, glm::mat4 value);
 	void SetVec3(const char* variable, glm::vec3 value);
 	void SetFloat(const char* variable, float value);
+	void SetInt(const char* variable, uint32_t value);
+	void use();
 private:
 	unsigned int programID;
 };

@@ -13,6 +13,7 @@ Application::~Application()
 		glfwDestroyWindow(m_Window);
 	}
 	glfwTerminate();
+
 }
 
 void Application::Run()
@@ -133,6 +134,7 @@ void Application::OnRender()
 	model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 	model = glm::scale(model, glm::vec3(2.0f));
 	model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
 
 	m_Shader[0].SetMat4("model", model);
 	//set up for skybox shader

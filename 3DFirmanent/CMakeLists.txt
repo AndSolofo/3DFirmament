@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.19)
 project(3DFirmament VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -8,6 +8,28 @@ add_executable(3DFirmament)
 
 find_package(OpenGL REQUIRED)
 target_link_libraries(3DFirmament PRIVATE OpenGL::GL)
+
+
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(3DFirmament PRIVATE fmt::fmt)
+
+find_package(glm CONFIG REQUIRED)
+target_link_libraries(3DFirmament PRIVATE glm::glm)
+
+find_package(glfw3 CONFIG REQUIRED)
+target_link_libraries(3DFirmament PRIVATE glfw3)
+
+find_package(imgui CONFIG REQUIRED)
+target_link_libraries(3DFirmament PRIVATE imgui::imgui)
+
+find_package(glad CONFIG REQUIRED)
+target_link_libraries(3DFirmament PRIVATE glad::glad)
+
+find_package(assimp CONFIG REQUIRED)
+target_link_libraries(3DFirmament PRIVATE assimp::assimp)
+
+find_path(STB_INCLUDE_DIR "stb_image.h")
+target_include_directories(3DFirmament PRIVATE ${STB_INCLUDE_DIR})
 
 
 
@@ -34,6 +56,14 @@ target_sources(3DFirmament
                src/Model.h
                src/Shader.h
                src/Mesh.h
+
+               PRIVATE
+               src/shader/Fragment.shader
+               src/shader/Lighting.shader
+               src/shader/LightingVS.shader
+               src/shader/Skybox.shader
+               src/shader/SkyboxVS.shader
+               src/shader/Vertex.shader
 )
 
 

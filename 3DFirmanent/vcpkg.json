@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "fmt",
+    "glm",
+    "glfw3",
+    "glad",
+    "assimp",
+    "stb",
+    {
+      "name":"imgui",
+      "features":["glfw-binding","opengl3-binding"]
+    }
+  ]
+}

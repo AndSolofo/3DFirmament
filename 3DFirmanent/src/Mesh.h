@@ -3,8 +3,8 @@
 #include<vector>
 #include<string>
 #include "Shader.h"
-#include <glad\glad.h>
-#include<glfw3.h>
+#include<glad/glad.h>
+#include<glfw/glfw3.h>
 
 
 
