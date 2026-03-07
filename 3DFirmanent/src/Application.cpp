@@ -44,14 +44,14 @@ void Application::Run()
 	}
 
 	LightMenu lightMenu = LightMenu(m_Window);
-	Shader shader = Shader("src/shader/Vertex.shader", "src/shader/Fragment.shader");
-	Shader skyboxShader = Shader("src/shader/SkyboxVS.shader", "src/shader/Skybox.shader");
+	Shader shader = Shader("../src/shader/Vertex.shader", "../src/shader/Fragment.shader");
+	Shader skyboxShader = Shader("../src/shader/SkyboxVS.shader", "../src/shader/Skybox.shader");
 	m_Shader.push_back(shader);
 	m_Shader.push_back(skyboxShader);
-	bagModel = Model("src/Models/Gun_dae/Gun.dae");
-	m_SkyBox.setUp("src/Skybox/skybox/right.jpg", "src/Skybox/skybox/left.jpg",
-		           "src/Skybox/skybox/top.jpg", "src/Skybox/skybox/bottom.jpg",
-		           "src/Skybox/skybox/front.jpg", "src/Skybox/skybox/back.jpg");
+	bagModel = Model("../src/Models/Gun_dae/Gun.dae");
+	m_SkyBox.setUp("../src/Skybox/skybox/right.jpg", "../src/Skybox/skybox/left.jpg",
+		           "../src/Skybox/skybox/top.jpg", "../src/Skybox/skybox/bottom.jpg",
+		           "../src/Skybox/skybox/front.jpg", "../src/Skybox/skybox/back.jpg");
 	
 	while(!glfwWindowShouldClose(m_Window)){
 		glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
@@ -105,7 +105,7 @@ void Application::OnRender()
 
 	m_Shader[0].SetVec3("dirLights[0].position", glm::vec3(0.0f, -1.0f, 0.0f));
 	m_Shader[0].SetVec3("dirLights[0].direction", dirLight.direction);
-	m_Shader[0].SetVec3("dirLights[0].ambient", dirLight.color);
+	m_Shader[0].SetVec3("dirLights[0].ambient",dirLight.color);
 	m_Shader[0].SetVec3("dirLights[0].diffuse", dirLight.intensity);
 	m_Shader[0].SetVec3("dirLights[0].specular", glm::vec3(0.5f, 0.5f, 0.5f));
 
@@ -114,7 +114,7 @@ void Application::OnRender()
 	m_Shader[0].SetVec3("pointLights[0].position", pointLight.position);
 	m_Shader[0].SetVec3("pointLights[0].diffuse", glm::vec3(1.5f, 0.0f, 0.0f));
 	m_Shader[0].SetVec3("pointLights[0].specular", glm::vec3(1.0f));
-	m_Shader[0].SetVec3("pointLights[0].ambient", pointLight.color);
+	m_Shader[0].SetVec3("pointLights[0].ambient",pointLight.color);
 	m_Shader[0].SetFloat("pointLights[0].constant", pointLight.constant);
 	m_Shader[0].SetFloat("pointLights[0].linear", pointLight.linear);      // reduced from 0.09
 	m_Shader[0].SetFloat("pointLights[0].quadratic", pointLight.quadratic);

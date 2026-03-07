@@ -61,4 +61,5 @@ public:
 	LightMenu(GLFWwindow* window);
 	~LightMenu();
 	void Render();
+
 };

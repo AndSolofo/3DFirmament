@@ -4,9 +4,15 @@ out vec4 FragColor;
 in vec2 TexCoord;
 in vec3 FragPos;
 in vec3 Normal;
-in vec4 shadowProjection;
+in vec4 lightSpaceProjection;
 
 uniform vec3 viewPos;
+uniform sampler2D texture_diffuse1;
+uniform sampler2D texture_diffuse2;
+uniform sampler2D texture_specular1;
+uniform sampler2D texture_specular2;
+uniform sampler2D shadowTexture;
+
 
 struct PointLight {
 	vec3 position;
@@ -48,13 +54,12 @@ struct SpotLight {
 uniform PointLight pointLights[MAX_POINT_LIGHT];
 uniform DirLight dirLights[MAX_DIR_LIGHT];
 uniform SpotLight spotLights[MAX_SPOT_LIGHT];
-uniform vec3 viewPos;
 
 vec3 getDiffuseColor() {
-	vec4 texColor = texture(texture_diffuse1, TexCoords);
+	vec4 texColor = texture(texture_diffuse1, TexCoord);
 	if (texColor.a > 0.0) { return vec3(texColor); }
 
-	texColor = texture(texture_diffuse2, TexCoords);
+	texColor = texture(texture_diffuse2, TexCoord);
 	if (texColor.a > 0.0) return vec3(texColor);
 
 
@@ -62,10 +67,10 @@ vec3 getDiffuseColor() {
 }
 
 vec3 getSpecularColor() {
-	vec4 texColor = texture(texture_specular1, TexCoords);
+	vec4 texColor = texture(texture_specular1, TexCoord);
 	if (texColor.a > 0.0) return vec3(texColor);
 
-	texColor = texture(texture_specular2, TexCoords);
+	texColor = texture(texture_specular2, TexCoord);
 	if (texColor.a > 0.0) return vec3(texColor);
 
 	return vec3(1.0);
@@ -154,7 +159,7 @@ vec3 CalculateSpotlight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir
 float inShadow(){
 	float shadow=0.0;
 	vec3 projCoords=(lightSpaceProjection.xyz/lightSpaceProjection.w)*0.5+0.5;
-	float closestDepth=texture(projCoords.xy,shadowTexture).r;
+	float closestDepth=texture(shadowTexture,projCoords.xy).r;
 	float currentDepth=projCoords.z;
 	if(currentDepth>closestDepth){
 		shadow=1.0;
