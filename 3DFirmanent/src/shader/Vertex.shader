@@ -12,6 +12,9 @@ uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 
+uniform mat4 lightView;
+uniform mat4 ligthSpace;
+
 
 void main()
 {
@@ -19,5 +22,6 @@ void main()
     TexCoord = aTexCoord;
     Normal = aNormal;
     FragPos = vec3(model*vec4(aPos, 1.0));
-    lightSpaceProjection=projection*view*model*vec4(aPos,1.0);
+    lightSpaceProjection = (lightView * ligthSpace)*model*vec4(aPos,1.0);
+
 }
