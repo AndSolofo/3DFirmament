@@ -5,6 +5,7 @@ Application* Application::s_pCursorImpl = nullptr;
 
 Application::Application() :m_Width(640),m_Height(480)
 {
+	sceneMananger.initAllEffects(m_Width,m_Height);
 }
 
 Application::~Application()
@@ -140,21 +141,6 @@ void Application::OnRender()
 	m_Shader[0].SetMat4("lightSpace", lightSpace);
 	m_Shader[0].SetMat4("lightView", lightView);
 
-	unsigned int depthMapFBO;
-	glGenFramebuffers(1, &depthMapFBO);
-
-	unsigned int shadowTextureID;
-	glGenTextures(1, &shadowTextureID);
-	glBindTexture(GL_TEXTURE_2D, shadowTextureID);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,m_Width, m_Height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
-	glGenerateMipmap(GL_TEXTURE_2D);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, shadowTextureID, 0);
 	glDrawBuffer(GL_NONE);
 	glReadBuffer(GL_NONE);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

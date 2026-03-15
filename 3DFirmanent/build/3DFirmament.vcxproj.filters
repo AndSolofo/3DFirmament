@@ -34,6 +34,12 @@
     <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\stb_image_define.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\SceneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\UIManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Application.h">
@@ -58,6 +64,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\UIManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -453,6 +453,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\SceneManager.cpp" />
+    <ClCompile Include="..\src\UIManager.cpp" />
     <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Application.cpp" />
     <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Camera.cpp" />
     <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\CubeMap.cpp" />
@@ -476,6 +478,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </None>
     <None Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\shader\Vertex.shader">
     </None>
+    <ClInclude Include="..\src\SceneManager.h" />
+    <ClInclude Include="..\src\UIManager.h" />
     <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Application.h" />
     <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Camera.h" />
     <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\CubeMap.h" />

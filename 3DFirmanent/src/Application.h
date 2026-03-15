@@ -16,6 +16,8 @@
 #include "Model.h"
 #include "LightingMenu.h"
 #include "CubeMap.h"
+#include "SceneManager.h"
+#include "UIManager.h"
 
 
 
@@ -38,6 +40,7 @@ private:
 	void OnResizeImpl(GLFWwindow* window, int width, int height);
 	void OnCursorImpl(GLFWwindow* window, double xpos, double ypos);
 	void OnInput(GLFWwindow* window);
+
 	int m_Width=640;
 	int m_Height=480;
 	const unsigned int MAX_SHADER = 2;
@@ -50,6 +53,10 @@ private:
 	//static variables in order to access OpenGL resize callbacks
 	static Application* s_pResizeImpl;
 	static Application* s_pCursorImpl;
+
+	//new abstractions for a scene
+	SceneManager sceneMananger;
+	UIManager uiManager;
 
 
 };
