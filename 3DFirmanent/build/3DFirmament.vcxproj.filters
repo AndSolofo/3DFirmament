@@ -40,6 +40,7 @@
     <ClCompile Include="..\src\UIManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Effects\Effect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Application.h">
@@ -72,6 +73,7 @@
     <ClInclude Include="..\src\UIManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Effects\Effect.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\3DFirmament\3DFirmanent\3DFirmanent\CMakeLists.txt" />

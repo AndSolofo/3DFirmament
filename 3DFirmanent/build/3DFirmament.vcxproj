@@ -453,6 +453,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Effects\Effect.cpp" />
     <ClCompile Include="..\src\SceneManager.cpp" />
     <ClCompile Include="..\src\UIManager.cpp" />
     <ClCompile Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Application.cpp" />
@@ -478,6 +479,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </None>
     <None Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\shader\Vertex.shader">
     </None>
+    <ClInclude Include="..\src\Effects\Effect.h" />
     <ClInclude Include="..\src\SceneManager.h" />
     <ClInclude Include="..\src\UIManager.h" />
     <ClInclude Include="C:\3DFirmament\3DFirmanent\3DFirmanent\src\Application.h" />
